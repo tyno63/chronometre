@@ -12,10 +12,14 @@ export class AppComponent {
   public isPaused = false;
   public time = 0;
 
+  
+  public times: Array<number> = [];
+
   private idInterval: number|null = null;
 
   public start(): void {
     this.isStarted = true;
+    this.isPaused = false;
     this.starTimer();
   }
 
