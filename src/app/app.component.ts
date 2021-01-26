@@ -27,16 +27,27 @@ export class AppComponent {
     this.isStarted = false;
     this.stopTimer();
     this.time = 0;
+    this.times = [];
+  }
+
+  public keep(): void{
+  this.times.push(this.time);  
   }
 
   public pause(): void {
     this.isPaused = true;
     this.stopTimer();
+    this.keep();
   }
 
   public continue(): void {
     this.isPaused = false;
     this.starTimer();
+  }
+  public remove(index: number): void{
+    if(index >= 0 && index < this.times.length) {
+      this.times.splice(index, 1);
+    }
   }
 
   private starTimer(): void {

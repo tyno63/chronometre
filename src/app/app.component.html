@@ -27,7 +27,7 @@
             Pause
           </button>
 
-          <button *ngIf="isStarted && !isPaused" type="button" class="btn btn-outline-info">
+          <button *ngIf="isStarted && !isPaused" type="button" class="btn btn-outline-info" (click)="keep()">
             Keep
           </button>
 
@@ -51,9 +51,9 @@
         </thead>
 
         <tbody>
-        <tr *ngFor="let item of times">
+        <tr *ngFor="let item of times; let itemIndex = index">
           <th scope="row">
-            <button type="button" class="btn btn-sm btn-outline-danger">
+            <button type="button" class="btn btn-sm btn-outline-danger" (click="remove(itemIndex)">
               x
             </button>
           </th>
